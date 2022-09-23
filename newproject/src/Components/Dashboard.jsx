@@ -4,9 +4,46 @@ import { LightMode,Person ,SouthWest,Info,Menu} from '@mui/icons-material';
 import Typography from '@mui/material/Typography';
 import CurrencyBitcoinIcon from '@mui/icons-material/CurrencyBitcoin';
 import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
+import Tabs from '@mui/material/Tabs';
+import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
+function TabPanel(props) {
+  const { children, value, index, ...other } = props;
+
+  return (
+    <div
+      role="tabpanel"
+      hidden={value !== index}
+      id={`simple-tabpanel-${index}`}
+      aria-labelledby={`simple-tab-${index}`}
+      {...other}
+    >
+      {value === index && (
+        <Box sx={{ p: 3 }}>
+          <Typography>{children}</Typography>
+        </Box>
+      )}
+    </div>
+  );
+}
+
+TabPanel.propTypes = {
+  children: PropTypes.node,
+  index: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+};
+
+function a11yProps(index) {
+  return {
+    id: `simple-tab-${index}`,
+    'aria-controls': `simple-tabpanel-${index}`,
+  };
+}
+
+
+
+
 export default function Dashboard() {
   const options=[
     {'value':1,'label':'بایننس کوین','icon':CurrencyBitcoinIcon},
@@ -50,15 +87,24 @@ export default function Dashboard() {
 
     <div className='row p-3'>
        <div className='col-lg-6 col-12'>
-              <Box sx={{ width: '100%', typography: 'body1' }}>
-              <TabContext value={tabvalue}>
-                <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-                  <TabList onChange={handleChange} aria-label="lab API tabs example">
-                    <Tab label="خرید از ما" value="1" TabIndicatorProps={{ sx: {backgroundColor: 'orange',},}} />
-                    <Tab label="فروش به ما" value="2" />
-                  </TabList>
+                  <Box sx={{ width: '100%' }}>
+                  <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+                    <Tabs value={tabvalue} onChange={handleChange} aria-label="basic tabs example">
+                      <Tab label="Item One" {...a11yProps(0)} />
+                      <Tab label="Item Two" {...a11yProps(1)} />
+                      <Tab label="Item Three" {...a11yProps(2)} />
+                    </Tabs>
+                  </Box>
+                  <TabPanel value={value} index={0}>
+                    Item One
+                  </TabPanel>
+                  <TabPanel value={value} index={1}>
+                    Item Two
+                  </TabPanel>
+                  <TabPanel value={value} index={2}>
+                    Item Three
+                  </TabPanel>
                 </Box>
-                <TabPanel value="1">
                 <form>
                
                <FormGroup>
@@ -97,12 +143,8 @@ export default function Dashboard() {
                
               </form>
 
-                </TabPanel>
-                <TabPanel value="2">
+               
                   <p>فروش به ما</p>
-                </TabPanel>
-              </TabContext>
-            </Box>
 
             
 
