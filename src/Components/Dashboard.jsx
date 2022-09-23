@@ -90,7 +90,7 @@ export default function Dashboard() {
                  <TextField fullWidth variant='outlined' helperText="موجودی ۰ بایننس" className="mt-2" label="بایننس"/>
                </FormGroup>
                <div className='mt-3'>
-               <Button variant="contained"  fullWidth size="large">
+               <Button variant="contained" sx={{fontSize:21}}  fullWidth size="large">
                  خرید بایننس کوین
                </Button>
                </div>
@@ -117,7 +117,6 @@ export default function Dashboard() {
           تعداد بایننس کوین
           </Typography>
           <div>
-            <p>-----------------------------</p>
           </div>
           <div className='d-flex m-1'>
           <Typography variant="p" component="div">
@@ -130,23 +129,21 @@ export default function Dashboard() {
           
         </div>
         
-        <div className='d-flex justify-content-between'>
+        <div className='d-flex justify-content-between py-2'>
           <Typography variant="p" component="div">
            قیمت هر واحد
           </Typography>
           <div>
-          <p>-----------------------------</p>
           </div>
           <Typography variant="p" component="div">
              ۳۰,۲۵۰ تومان
           </Typography>
         </div>
-        <div className='d-flex justify-content-between'>
+        <div className='d-flex justify-content-between py-2'>
           <Typography variant="p" component="div">
           مبلغ  
           </Typography>
           <div>
-          <p>-----------------------------</p>
           </div>
           <div className='d-flex'>
           <Typography variant="p" component="div">
@@ -154,34 +151,32 @@ export default function Dashboard() {
           </Typography>
           </div>
         </div>
-        <div className='d-flex justify-content-between'>
+        <div className='d-flex justify-content-between py-2'>
           <Typography variant="p" component="div">
               تخفیف
           </Typography>
           <div>
-          <p>-----------------------------</p>
           </div>
           <Typography variant="p" component="div">
             ۰ تومان
           </Typography>
         </div>
-        <div className='d-flex justify-content-between'>
+        <div className='d-flex justify-content-between py-2'>
           <Typography variant="p" component="div">
               کارمزد شبکه ارسال
           </Typography>
           <div>
-          <p>---------------------</p>
           </div>
           <Typography variant="p" component="div">
             در انتظار محاسبه
           </Typography>
         </div>
-        <div className='py-3'>
+        <div className='py-4'>
          <Button startIcon={<Info/>} variant="outlined" fullWidth size="large" >
             توضیح کامل در خصوص کارمزد
          </Button>
         </div>
-        <div className='pt-5 mt-4'>
+        <div className='pt-4 mt-5'>
          <Box sx={{backgroundColor:'lightgrey',borderRadius:1}}>
              <div className='d-flex justify-content-between py-3 px-3'>
              <Typography variant="p" component="div">
